@@ -7,20 +7,26 @@
       "includeFiles": "backend/**"
     },
     "api/ml.py": {
-      "includeFiles": "ml-service/**"
+      "includeFiles": [
+        "ml-service/app.py",
+        "ml-service/predict.py",
+        "ml-service/model.pkl",
+        "ml-service/preprocessor.pkl",
+        "ml-service/metrics.json"
+      ]
     }
   },
   "rewrites": [
     {
-      "source": "/api/ml/:match*",
+      "source": "/api/ml/:path*",
       "destination": "/api/ml"
     },
     {
-      "source": "/ml/:match*",
+      "source": "/ml/:path*",
       "destination": "/api/ml"
     },
     {
-      "source": "/api/:match*",
+      "source": "/api/:path*",
       "destination": "/api/index"
     },
     {
