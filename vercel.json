@@ -1,0 +1,31 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "backend/**"
+    },
+    "api/ml.py": {
+      "includeFiles": "ml-service/**"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/ml/:match*",
+      "destination": "/api/ml"
+    },
+    {
+      "source": "/ml/:match*",
+      "destination": "/api/ml"
+    },
+    {
+      "source": "/api/:match*",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

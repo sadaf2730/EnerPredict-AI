@@ -1,0 +1,262 @@
+{
+  "evaluation_split": {
+    "strategy": "Chronological Out-of-Time Validation Split",
+    "split_date": "2025-07-01",
+    "total_samples": 10950,
+    "train_samples": 8205,
+    "test_samples": 2745,
+    "train_period": "2024-01-01 to 2025-06-30",
+    "test_period": "2025-07-01 to 2025-12-30"
+  },
+  "model_comparison": {
+    "RandomForestRegressor": {
+      "overall": {
+        "daily_energy_consumption_kwh": {
+          "MAE": 11.087,
+          "RMSE": 22.798,
+          "R2": 0.9992
+        },
+        "peak_demand_kw": {
+          "MAE": 0.962,
+          "RMSE": 2.048,
+          "R2": 0.9993
+        },
+        "mean_R2": 0.9992
+      },
+      "per_facility": {
+        "home": {
+          "daily_energy_consumption_kwh": {
+            "MAE": 1.365,
+            "RMSE": 1.993,
+            "R2": 0.9776
+          },
+          "peak_demand_kw": {
+            "MAE": 0.332,
+            "RMSE": 0.593,
+            "R2": 0.9374
+          },
+          "mean_R2": 0.9575
+        },
+        "society": {
+          "daily_energy_consumption_kwh": {
+            "MAE": 11.844,
+            "RMSE": 17.177,
+            "R2": 0.9803
+          },
+          "peak_demand_kw": {
+            "MAE": 1.057,
+            "RMSE": 1.547,
+            "R2": 0.9955
+          },
+          "mean_R2": 0.9879
+        },
+        "office": {
+          "daily_energy_consumption_kwh": {
+            "MAE": 11.214,
+            "RMSE": 19.876,
+            "R2": 0.9981
+          },
+          "peak_demand_kw": {
+            "MAE": 0.948,
+            "RMSE": 1.562,
+            "R2": 0.9989
+          },
+          "mean_R2": 0.9985
+        },
+        "college": {
+          "daily_energy_consumption_kwh": {
+            "MAE": 20.482,
+            "RMSE": 38.606,
+            "R2": 0.999
+          },
+          "peak_demand_kw": {
+            "MAE": 1.412,
+            "RMSE": 3.343,
+            "R2": 0.9991
+          },
+          "mean_R2": 0.999
+        },
+        "function_hall": {
+          "daily_energy_consumption_kwh": {
+            "MAE": 10.528,
+            "RMSE": 20.352,
+            "R2": 0.997
+          },
+          "peak_demand_kw": {
+            "MAE": 1.059,
+            "RMSE": 2.148,
+            "R2": 0.9962
+          },
+          "mean_R2": 0.9966
+        }
+      }
+    },
+    "GradientBoostingRegressor": {
+      "overall": {
+        "daily_energy_consumption_kwh": {
+          "MAE": 11.355,
+          "RMSE": 20.323,
+          "R2": 0.9993
+        },
+        "peak_demand_kw": {
+          "MAE": 0.633,
+          "RMSE": 1.272,
+          "R2": 0.9997
+        },
+        "mean_R2": 0.9995
+      },
+      "per_facility": {
+        "home": {
+          "daily_energy_consumption_kwh": {
+            "MAE": 3.699,
+            "RMSE": 4.852,
+            "R2": 0.8673
+          },
+          "peak_demand_kw": {
+            "MAE": 0.12,
+            "RMSE": 0.167,
+            "R2": 0.995
+          },
+          "mean_R2": 0.9312
+        },
+        "society": {
+          "daily_energy_consumption_kwh": {
+            "MAE": 13.062,
+            "RMSE": 18.669,
+            "R2": 0.9768
+          },
+          "peak_demand_kw": {
+            "MAE": 0.914,
+            "RMSE": 1.262,
+            "R2": 0.997
+          },
+          "mean_R2": 0.9869
+        },
+        "office": {
+          "daily_energy_consumption_kwh": {
+            "MAE": 10.86,
+            "RMSE": 18.641,
+            "R2": 0.9984
+          },
+          "peak_demand_kw": {
+            "MAE": 0.601,
+            "RMSE": 0.86,
+            "R2": 0.9997
+          },
+          "mean_R2": 0.999
+        },
+        "college": {
+          "daily_energy_consumption_kwh": {
+            "MAE": 18.597,
+            "RMSE": 31.572,
+            "R2": 0.9993
+          },
+          "peak_demand_kw": {
+            "MAE": 0.746,
+            "RMSE": 1.838,
+            "R2": 0.9997
+          },
+          "mean_R2": 0.9995
+        },
+        "function_hall": {
+          "daily_energy_consumption_kwh": {
+            "MAE": 10.558,
+            "RMSE": 18.675,
+            "R2": 0.9975
+          },
+          "peak_demand_kw": {
+            "MAE": 0.786,
+            "RMSE": 1.533,
+            "R2": 0.9981
+          },
+          "mean_R2": 0.9978
+        }
+      }
+    }
+  },
+  "selected_model": {
+    "model_name": "GradientBoostingRegressor",
+    "selection_criterion": "Highest combined Mean R\u00b2 across both target variables on unseen future chronological holdout",
+    "selection_reason": "Gradient Boosting achieved higher mean test holdout R\u00b2 (0.9995 vs 0.9992) and tighter residual convergence across facility sub-distributions.",
+    "overall_metrics": {
+      "daily_energy_consumption_kwh": {
+        "MAE": 11.355,
+        "RMSE": 20.323,
+        "R2": 0.9993
+      },
+      "peak_demand_kw": {
+        "MAE": 0.633,
+        "RMSE": 1.272,
+        "R2": 0.9997
+      },
+      "mean_R2": 0.9995
+    },
+    "per_facility_metrics": {
+      "home": {
+        "daily_energy_consumption_kwh": {
+          "MAE": 3.699,
+          "RMSE": 4.852,
+          "R2": 0.8673
+        },
+        "peak_demand_kw": {
+          "MAE": 0.12,
+          "RMSE": 0.167,
+          "R2": 0.995
+        },
+        "mean_R2": 0.9312
+      },
+      "society": {
+        "daily_energy_consumption_kwh": {
+          "MAE": 13.062,
+          "RMSE": 18.669,
+          "R2": 0.9768
+        },
+        "peak_demand_kw": {
+          "MAE": 0.914,
+          "RMSE": 1.262,
+          "R2": 0.997
+        },
+        "mean_R2": 0.9869
+      },
+      "office": {
+        "daily_energy_consumption_kwh": {
+          "MAE": 10.86,
+          "RMSE": 18.641,
+          "R2": 0.9984
+        },
+        "peak_demand_kw": {
+          "MAE": 0.601,
+          "RMSE": 0.86,
+          "R2": 0.9997
+        },
+        "mean_R2": 0.999
+      },
+      "college": {
+        "daily_energy_consumption_kwh": {
+          "MAE": 18.597,
+          "RMSE": 31.572,
+          "R2": 0.9993
+        },
+        "peak_demand_kw": {
+          "MAE": 0.746,
+          "RMSE": 1.838,
+          "R2": 0.9997
+        },
+        "mean_R2": 0.9995
+      },
+      "function_hall": {
+        "daily_energy_consumption_kwh": {
+          "MAE": 10.558,
+          "RMSE": 18.675,
+          "R2": 0.9975
+        },
+        "peak_demand_kw": {
+          "MAE": 0.786,
+          "RMSE": 1.533,
+          "R2": 0.9981
+        },
+        "mean_R2": 0.9978
+      }
+    }
+  }
+}
