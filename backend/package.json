@@ -1,6 +1,9 @@
 {
   "name": "energy-dashboard-backend",
   "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
   "description": "Express.js Backend & MongoDB for AI/ML Energy Predictive Insight Dashboard",
   "main": "server.js",
   "scripts": {
