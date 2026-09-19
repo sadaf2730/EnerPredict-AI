@@ -10,8 +10,4 @@ dependencies = [
   "scikit-learn",
   "joblib",
   "pydantic"
-]
-
-[tool.vercel]
-entrypoint = "api.ml:app"
-regions = ["bom1"]
+]

@@ -4,8 +4,8 @@
   "private": true,
   "description": "EnerPredict AI - Personalized Energy Predictive Insight Dashboard Monorepo for Vercel",
   "scripts": {
-    "build": "cd frontend && npm install && npm run build",
-    "build:frontend": "cd frontend && npm install && npm run build",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
+    "build:frontend": "npm --prefix frontend install && npm --prefix frontend run build",
     "start": "cd backend && npm start"
   },
   "dependencies": {

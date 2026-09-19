@@ -1,19 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd frontend && npm install --include=dev && npm run build",
+  "regions": ["bom1"],
+  "buildCommand": "npm run build",
   "outputDirectory": "frontend/dist",
   "functions": {
     "api/index.js": {
       "includeFiles": "backend/**"
     },
     "api/ml.py": {
-      "includeFiles": [
-        "ml-service/app.py",
-        "ml-service/predict.py",
-        "ml-service/model.pkl",
-        "ml-service/preprocessor.pkl",
-        "ml-service/metrics.json"
-      ]
+      "includeFiles": "ml-service/**"
     }
   },
   "rewrites": [
