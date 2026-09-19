@@ -6,9 +6,6 @@
   "functions": {
     "api/index.js": {
       "includeFiles": "backend/**"
-    },
-    "api/ml.py": {
-      "includeFiles": "ml-service/**"
     }
   },
   "rewrites": [
